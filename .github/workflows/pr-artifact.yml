@@ -1,0 +1,12 @@
+name: pr-artifact
+on:
+  pull_request:
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - run: mkdir -p out && echo "SF:legit" > out/lcov.info
+      - uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report-ubuntu-latest-20.x
+          path: out/lcov.info
